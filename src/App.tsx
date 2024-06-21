@@ -3,6 +3,7 @@ import acceptationCard from './assets/acceptation.png'
 import './App.css'
 import Step1 from "./Step1.tsx";
 import grid from './assets/grid.svg'
+import gitlab from './assets/gitlab.svg'
 import CardMosaic from "./CardMosaic.tsx"
 import Instructions from "./Instructions.tsx";
 import {allCards} from "./config.ts";
@@ -63,6 +64,9 @@ function App() {
             <h1>Moving Motivators</h1>
             <img src={grid} className={"mosaic-button"} title={"Mosaïque"}
                  onClick={() => setDisplayMosaic(true)}/>
+            <a href="https://gitlab.com/gsalaun1/moving-motivators" target="_blank" className={"repository-button"}>
+                <img src={gitlab} title={"Repository"}/>
+            </a>
             <div className={"zoomed-card"}>
                 <img src={zoomedCard}/>
             </div>

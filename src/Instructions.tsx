@@ -1,5 +1,6 @@
 import arrowLeft from "./assets/arrow-left-solid.svg";
 import arrowRight from "./assets/arrow-right-solid.svg";
+import './Instructions.css'
 
 type InstructionsProps = {
     step: number

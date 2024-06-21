@@ -1,15 +1,15 @@
 import {useSortable} from "@dnd-kit/sortable"
 import {CSS} from "@dnd-kit/utilities"
 import {HTMLAttributes} from "react"
-import {TCardItem} from "./App"
-import CardItem from "./CardItem.tsx";
+import {Card} from "./App"
+import DisplayableCard from "./DisplayableCard.tsx";
 
 type Props = {
-    item: TCardItem
+    item: Card
     onHover: (_:string) => void
 } & HTMLAttributes<HTMLDivElement>
 
-const SortableCardItem = ({item, onHover, ...props}: Props) => {
+const SortableCard = ({item, onHover, ...props}: Props) => {
     const {attributes, isDragging, listeners, setNodeRef, transform, transition} = useSortable({
         id: item.id,
     })
@@ -20,7 +20,7 @@ const SortableCardItem = ({item, onHover, ...props}: Props) => {
     }
 
     return (
-        <CardItem
+        <DisplayableCard
             item={item}
             ref={setNodeRef}
             style={styles}
@@ -33,4 +33,4 @@ const SortableCardItem = ({item, onHover, ...props}: Props) => {
     )
 }
 
-export default SortableCardItem
+export default SortableCard

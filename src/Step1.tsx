@@ -1,42 +1,26 @@
 import {forwardRef, useState} from "react"
 import './App.css'
 import {arrayMove, rectSortingStrategy, SortableContext} from "@dnd-kit/sortable"
-import {
-    closestCenter,
-    DndContext,
-    DragEndEvent,
-    DragOverlay,
-    DragStartEvent,
-    PointerSensor,
-    TouchSensor,
-    useSensor,
-    useSensors
-} from "@dnd-kit/core"
+import {closestCenter, DndContext, DragEndEvent, DragOverlay, DragStartEvent} from "@dnd-kit/core"
 import SortableCardItem from "./SortableCardItem.tsx";
-import CardItem from "./CardItem.tsx";
-import {TCardItem} from "./App.tsx";
+import DisplayableCard from "./DisplayableCard.tsx";
+import {Card} from "./App.tsx";
 
 type Props = {
-    cards: TCardItem[]
+    cards: Card[]
     onHover: (_: string) => void
-    updateCards: (cards: TCardItem[]) => void
+    updateCards: (cards: Card[]) => void
 }
 
 const Step1 = forwardRef<HTMLDivElement, Props>(
     ({cards, onHover, updateCards}) => {
-        // for drag overlay
-        const [activeCardItem, setActiveCardItem] = useState<TCardItem>()
+        const [activeCardItem, setActiveCardItem] = useState<Card>()
 
-        // for input methods detection
-        const sensors = useSensors(useSensor(PointerSensor), useSensor(TouchSensor))
-
-        // triggered when dragging starts
         const handleCardDragStart = (event: DragStartEvent) => {
             const {active} = event
             setActiveCardItem(cards.find((item) => item.id === active.id))
         }
 
-        // triggered when dragging ends
         const handleCardDragEnd = (event: DragEndEvent) => {
             const {active, over} = event
             if (!over) return
@@ -52,7 +36,7 @@ const Step1 = forwardRef<HTMLDivElement, Props>(
             const overIndex = cards.findIndex((item) => item.id === over.id)
 
             if (activeIndex !== overIndex) {
-                updateCards(arrayMove<TCardItem>(cards, activeIndex, overIndex))
+                updateCards(arrayMove<Card>(cards, activeIndex, overIndex))
             }
             setActiveCardItem(undefined)
         }
@@ -63,7 +47,6 @@ const Step1 = forwardRef<HTMLDivElement, Props>(
 
         return (
             <DndContext
-                sensors={sensors}
                 collisionDetection={closestCenter}
                 onDragStart={handleCardDragStart}
                 onDragEnd={handleCardDragEnd}
@@ -87,7 +70,7 @@ const Step1 = forwardRef<HTMLDivElement, Props>(
                 </SortableContext>
                 <DragOverlay adjustScale style={{transformOrigin: "0 0 "}}>
                     {activeCardItem ?
-                        <CardItem item={activeCardItem} isDragging onHover={onHover}/> : null}
+                        <DisplayableCard item={activeCardItem} isDragging onHover={onHover}/> : null}
                 </DragOverlay>
             </DndContext>
         )

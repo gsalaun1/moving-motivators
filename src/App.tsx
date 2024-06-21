@@ -8,7 +8,7 @@ import Instructions from "./Instructions.tsx";
 import {allCards} from "./config.ts";
 import Step2 from "./Step2.tsx";
 
-export type TCardItem = {
+export type Card = {
     id: number
     image: string
     y: number
@@ -20,7 +20,7 @@ function App() {
 
     const [displayMosaic, setDisplayMosaic] = useState<boolean>(false)
 
-    const [cards, setCards] = useState<TCardItem[]>(allCards)
+    const [cards, setCards] = useState<Card[]>(allCards)
 
     const [step, setStep] = useState<number>(1)
 
@@ -28,7 +28,7 @@ function App() {
         setZoomedCard(_zoomedCard)
     }
 
-    const updateCards = (cards: TCardItem[]) => {
+    const updateCards = (cards: Card[]) => {
         setCards(cards)
     }
 

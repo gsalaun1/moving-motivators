@@ -1,14 +1,14 @@
 import { CSSProperties, forwardRef, HTMLAttributes } from "react"
-import {TCardItem} from "./App"
+import {Card} from "./App"
 
 type Props = {
-    item: TCardItem
+    item: Card
     isOpacityEnabled?: boolean
     isDragging?: boolean
     onHover: (_:string) => void
 } & HTMLAttributes<HTMLDivElement>
 
-const Item = forwardRef<HTMLDivElement, Props>(
+const DisplayableCard = forwardRef<HTMLDivElement, Props>(
     ({ item, isOpacityEnabled, isDragging,onHover,  style, ...props }, ref) => {
         const styles: CSSProperties = {
             opacity: isOpacityEnabled ? "0.4" : "1",
@@ -38,4 +38,4 @@ const Item = forwardRef<HTMLDivElement, Props>(
     }
 )
 
-export default Item
+export default DisplayableCard

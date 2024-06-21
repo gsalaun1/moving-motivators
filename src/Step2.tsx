@@ -1,38 +1,10 @@
-import {DndContext, DragEndEvent, useDraggable} from "@dnd-kit/core";
-import {CSS} from '@dnd-kit/utilities';
+import {DndContext, DragEndEvent} from "@dnd-kit/core";
 import {restrictToParentElement, restrictToVerticalAxis} from "@dnd-kit/modifiers";
-import {TCardItem} from "./App.tsx";
-
-interface DraggableProps {
-    y: number
-    id: number
-    item: TCardItem
-    onHover: (_: string) => void
-}
-
-function DraggableCardItem(props: DraggableProps) {
-    const {attributes, listeners, setNodeRef, transform} = useDraggable({
-        id: props.id,
-    });
-    const style = {
-        transform: CSS.Translate.toString(transform),
-        marginTop: props.y + 'px'
-    };
-
-    const imgStyle = {
-        width: "100%",
-        borderRadius: "8px"
-    }
-
-    return (
-        <div ref={setNodeRef} style={style} {...listeners} {...attributes}>
-            <img src={props.item.image} onMouseEnter={() => props.onHover(props.item.image)} style={imgStyle}/>
-        </div>
-    )
-}
+import {Card} from "./App.tsx";
+import DraggableCard from "./DraggableCard.tsx";
 
 type Step2Props = {
-    cards: TCardItem[]
+    cards: Card[]
     onHover: (_: string) => void
     applyDelta: (cardId: number, delta: number) => void
 }
@@ -61,13 +33,13 @@ const Step2 = ({cards, onHover, applyDelta}: Step2Props) => {
     return (
 
         <div style={container}>
-            {cards.map((movingMotivatorsCard) => (
+            {cards.map((card) => (
                 <DndContext
                     onDragEnd={handleCardDragEnd}
                     modifiers={[restrictToVerticalAxis, restrictToParentElement]}>
                     <div>
-                        <DraggableCardItem key={movingMotivatorsCard.id} item={movingMotivatorsCard}
-                                           onHover={onHover} id={movingMotivatorsCard.id} y={movingMotivatorsCard.y}/>
+                        <DraggableCard key={card.id} card={card}
+                                           onHover={onHover} id={card.id} y={card.y}/>
                     </div>
                 </DndContext>
             ))}

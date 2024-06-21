@@ -46,24 +46,6 @@
     width: 66%;
 }
 
-.instructions {
-    display: flex;
-    height: 10%;
-    justify-content: space-between;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
-}
-
-.instructions div {
-    display: flex;
-}
-
-.instructions img {
-    width: 1em;
-}
-
 .footer {
     position: absolute;
     margin-top: 2rem;
@@ -71,4 +53,3 @@
     text-align: center;
     width: 100%;
 }
-

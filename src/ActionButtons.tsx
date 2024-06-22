@@ -4,6 +4,7 @@ import link from "./assets/link-solid.svg";
 import './ActionButtons.css';
 import {Card} from "./App.tsx";
 import toast from "react-hot-toast";
+import {seedForger} from "./SeedService.ts";
 
 
 type ActionButtonsProps = {
@@ -24,12 +25,8 @@ const ActionButtons = ({displayMosaic, cards}: ActionButtonsProps) => {
 
     const copyShareLink = () => {
         const rootUrl = extractRootUrl()
-        console.log(cards.length)
-        cards.forEach(card => {
-            //console.log("une carte")
-            console.log(card.y)
-        })
-        const link = rootUrl + "?seed=" + cards.map(card => card.id).join("")
+        const seed = seedForger(cards)
+        const link = rootUrl + "?seed=" + seed
         navigator.clipboard.writeText(link);
         toast.success('Lien de partage copié !')
     }

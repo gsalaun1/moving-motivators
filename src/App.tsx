@@ -1,5 +1,4 @@
 import {useState} from 'react'
-import acceptationCard from './assets/acceptation.png'
 import './App.css'
 import Step1 from "./Step1.tsx";
 import CardMosaic from "./CardMosaic.tsx"
@@ -7,6 +6,7 @@ import Instructions from "./Instructions.tsx";
 import {allCards} from "./config.ts";
 import Step2 from "./Step2.tsx";
 import ActionButtons from "./ActionButtons.tsx";
+import ZoomedCard from "./ZoomedCard.tsx";
 
 export type Card = {
     id: number
@@ -16,7 +16,7 @@ export type Card = {
 
 function App() {
 
-    const [zoomedCard, setZoomedCard] = useState(acceptationCard)
+    const [zoomedCard, setZoomedCard] = useState<string | null>(null)
 
     const [displayMosaic, setDisplayMosaic] = useState<boolean>(false)
 
@@ -56,14 +56,13 @@ function App() {
 
     const updateStep = (newStep: number) => {
         setStep(newStep)
+        setZoomedCard(null)
     }
 
     return (
         <>
             <div className="top-section">
-                <div className={"zoomed-card"}>
-                    <img src={zoomedCard}/>
-                </div>
+                <ZoomedCard card={zoomedCard}/>
                 <div style={{position: "absolute", width: "100%"}}>
                     <h1>Moving Motivators</h1>
                     <Instructions step={step} updateStep={updateStep}/>

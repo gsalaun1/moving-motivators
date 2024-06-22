@@ -18,15 +18,6 @@
     width: 100%;
 }
 
-.zoomed-card {
-    width: 20rem;
-    padding: 2rem;
-}
-
-.zoomed-card img {
-    width: 100%;
-}
-
 .cards img:hover {
     filter: drop-shadow(0 0 2em #61dafbaa);
 }

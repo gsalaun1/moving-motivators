@@ -21,3 +21,9 @@
     width: 2em;
     cursor: pointer;
 }
+
+@media (prefers-color-scheme: dark) {
+    .mosaic-button, .repository-button, .link-button {
+        filter: invert(100%);
+    }
+}

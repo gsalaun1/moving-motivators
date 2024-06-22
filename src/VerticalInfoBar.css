@@ -8,4 +8,11 @@
 
 .vertical-info-bar img {
     width: 100%;
+    filter: invert(0%);
+}
+
+@media (prefers-color-scheme: dark) {
+    .vertical-info-bar img {
+        filter: invert(100%);
+    }
 }

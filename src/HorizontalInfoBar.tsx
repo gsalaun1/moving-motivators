@@ -11,7 +11,7 @@ const HorizontalInfoBar = ({step}: HorizontalInfoBarProps) => {
         return (
             <div className={"info-bar"}>
                 <div>
-                    <img src={arrowLeft}/>
+                    <img src={arrowLeft} style={{color:"red", fill: "red"}}/>
                     <span>Moins important</span>
                 </div>
                 <div>

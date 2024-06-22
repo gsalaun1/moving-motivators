@@ -13,8 +13,15 @@
 
 .info-bar div img {
     height: 100%;
+    filter: invert(0%);
 }
 
 .info-bar div span {
     width: 10rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    .info-bar div img {
+        filter: invert(100%);
+    }
 }

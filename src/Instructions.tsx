@@ -11,7 +11,7 @@ const Instructions = ({step, updateStep}: InstructionsProps) => {
 
     const instructions = () => {
         if (step === 1) {
-            return <span>Etape 1 : triez les cartes par ordre d'importance, de la moins importante à gauche vers la plus</span>
+            return <span>Etape 1 : triez les cartes par ordre d'importance, de la moins importante à gauche vers la plus importante à droite</span>
         } else {
             return <span>Etape 2 : faites monter/descendre les cartes suivant l'influence du changement considéré</span>
         }

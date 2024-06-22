@@ -1,6 +1,7 @@
 import {useDraggable} from "@dnd-kit/core";
 import {CSS} from "@dnd-kit/utilities";
 import {Card} from "./App.tsx";
+import DisplayableCard from "./DisplayableCard.tsx";
 
 interface DraggableCardProps {
     y: number
@@ -10,7 +11,7 @@ interface DraggableCardProps {
 }
 
 const DraggableCard = function DraggableCard(props: DraggableCardProps) {
-    const {attributes, listeners, setNodeRef, transform} = useDraggable({
+    const {listeners, setNodeRef, transform} = useDraggable({
         id: props.id,
     });
     const style = {
@@ -18,17 +19,11 @@ const DraggableCard = function DraggableCard(props: DraggableCardProps) {
         marginTop: props.y + 'px'
     };
 
-    const imgStyle = {
-        width: "100%",
-        borderRadius: "8px"
-    }
-
     return (
-        <div ref={setNodeRef} style={style} {...listeners} {...attributes}>
-            <img src={props.card.image} onMouseEnter={() => props.onHover(props.card.image)} style={imgStyle}/>
+        <div ref={setNodeRef} style={style} {...listeners}>
+            <DisplayableCard item={props.card} onHover={props.onHover}/>
         </div>
     )
-
 }
 
 export default DraggableCard;

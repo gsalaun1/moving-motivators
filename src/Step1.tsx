@@ -2,7 +2,7 @@ import {forwardRef, useState} from "react"
 import './App.css'
 import {arrayMove, rectSortingStrategy, SortableContext} from "@dnd-kit/sortable"
 import {closestCenter, DndContext, DragEndEvent, DragOverlay, DragStartEvent} from "@dnd-kit/core"
-import SortableCardItem from "./SortableCardItem.tsx";
+import SortableCard from "./SortableCard.tsx";
 import DisplayableCard from "./DisplayableCard.tsx";
 import {Card} from "./App.tsx";
 
@@ -63,7 +63,7 @@ const Step1 = forwardRef<HTMLDivElement, Props>(
                         }}
                     >
                         {cards.map((movingMotivatorsCard) => (
-                            <SortableCardItem key={movingMotivatorsCard.id} item={movingMotivatorsCard}
+                            <SortableCard key={movingMotivatorsCard.id} item={movingMotivatorsCard}
                                               onHover={onHover}/>
                         ))}
                     </div>

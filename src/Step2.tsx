@@ -31,16 +31,15 @@ const Step2 = ({cards, onHover, applyDelta}: Step2Props) => {
     }
 
     const floatingLine = {
-        position: "absolute",
         marginTop: "200px",
-        border:"1px dashed rgb(63 63 68 / 25%)",
+        border: "1px dashed rgb(63 63 68 / 25%)",
         width: "95%",
     }
 
     return (
 
         <div style={container}>
-            <div style={floatingLine}></div>
+            <div style={{...floatingLine, position: "absolute"}}></div>
             {cards.map((card) => (
                 <DndContext
                     onDragEnd={handleCardDragEnd}

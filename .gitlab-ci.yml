@@ -1,4 +1,4 @@
-image: node:16.5.0
+image: node:18.18.2
 
 pages:
   stage: deploy
@@ -11,6 +11,7 @@ pages:
       - node_modules/
   script:
     - npm install
+    - npm run test
     - npm run build
     - cp -a dist/. public/
   artifacts:
@@ -21,6 +22,7 @@ pages-branch:
   stage: deploy
   script:
     - npm install
+    - npm run test
     - npm run build
     - mkdir -p _branch/$CI_COMMIT_BRANCH
     - cp -a dist/. _branch/$CI_COMMIT_BRANCH

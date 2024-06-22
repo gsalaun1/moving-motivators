@@ -28,7 +28,6 @@ const Instructions = ({step, updateStep}: InstructionsProps) => {
             <div className={"instructions"}>
                 {instructions()}
             </div>
-            <br/>
             {actionButton()}
         </>
     )

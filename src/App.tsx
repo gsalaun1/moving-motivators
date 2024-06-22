@@ -7,6 +7,7 @@ import {allCards} from "./config.ts";
 import Step2 from "./Step2.tsx";
 import ActionButtons from "./ActionButtons.tsx";
 import ZoomedCard from "./ZoomedCard.tsx";
+import InfoBar from "./InfoBar.tsx";
 
 export type Card = {
     id: number
@@ -74,6 +75,7 @@ function App() {
             <div className={"cards"}>
                 {displayStep()}
             </div>
+            <InfoBar step={step}/>
             <div className={"footer"}>Cet exercice est une des pratiques du Management 3.0 - <a
                 href={"https://management30.com/practice/moving-motivators/"} target={"_blank"}>Site officiel</a></div>
 

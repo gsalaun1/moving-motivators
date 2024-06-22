@@ -1,0 +1,20 @@
+.info-bar {
+    display: flex;
+    height: 2rem;
+    justify-content: space-between;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.info-bar div {
+    display: flex;
+    align-items: center;
+}
+
+.info-bar div img {
+    height: 100%;
+}
+
+.info-bar div span {
+    width: 10rem;
+}

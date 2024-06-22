@@ -1,12 +1,12 @@
 import arrowLeft from './assets/arrow-left-solid.svg'
 import arrowRight from './assets/arrow-right-solid.svg'
-import './InfoBar.css'
+import './HorizontalInfoBar.css'
 
-type InfoBarProps = {
+type HorizontalInfoBarProps = {
     step: number
 }
 
-const InfoBar = ({step}: InfoBarProps) => {
+const HorizontalInfoBar = ({step}: HorizontalInfoBarProps) => {
     if (step == 1) {
         return (
             <div className={"info-bar"}>
@@ -26,4 +26,4 @@ const InfoBar = ({step}: InfoBarProps) => {
     )
 }
 
-export default InfoBar;
+export default HorizontalInfoBar;

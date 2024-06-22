@@ -7,7 +7,7 @@ import {allCards} from "./config.ts";
 import Step2 from "./Step2.tsx";
 import ActionButtons from "./ActionButtons.tsx";
 import ZoomedCard from "./ZoomedCard.tsx";
-import InfoBar from "./InfoBar.tsx";
+import HorizontalInfoBar from "./HorizontalInfoBar.tsx";
 import VerticalInfoBar from "./VerticalInfoBar.tsx";
 
 export type Card = {
@@ -79,7 +79,7 @@ function App() {
                     {displayStep()}
                 </div>
             </div>
-            <InfoBar step={step}/>
+            <HorizontalInfoBar step={step}/>
             <div className={"footer"}>Cet exercice est une des pratiques du Management 3.0 - <a
                 href={"https://management30.com/practice/moving-motivators/"} target={"_blank"}>Site officiel</a></div>
 

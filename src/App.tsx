@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import './App.css'
 import Step1 from "./Step1.tsx";
 import Mosaic from "./Mosaic.tsx"
@@ -9,6 +9,8 @@ import ActionButtons from "./ActionButtons.tsx";
 import ZoomedCard from "./ZoomedCard.tsx";
 import HorizontalInfoBar from "./HorizontalInfoBar.tsx";
 import VerticalInfoBar from "./VerticalInfoBar.tsx";
+import {useSearchParams} from "react-router-dom";
+import {seedExtracter} from "./SeedExtracter.ts";
 
 export type Card = {
     id: number
@@ -22,9 +24,25 @@ function App() {
 
     const [displayMosaic, setDisplayMosaic] = useState<boolean>(false)
 
-    const [cards, setCards] = useState<Card[]>(allCards)
+    const [cards, setCards] = useState<Card[]>([])
 
     const [step, setStep] = useState<number>(1)
+
+    const [searchParams] = useSearchParams();
+    const seed = searchParams.get('seed');
+
+    useEffect(() => {
+        if (seed !== null) {
+            const extractedCards = seedExtracter(seed)
+            if (extractedCards.length === 0) {
+                setCards(allCards)
+            } else {
+                setCards(extractedCards)
+            }
+        } else {
+            setCards(allCards)
+        }
+    }, [])
 
     const updateZoomedCard = (_zoomedCard: string) => {
         setZoomedCard(_zoomedCard)
@@ -70,7 +88,7 @@ function App() {
                     <Instructions step={step} updateStep={updateStep}/>
                 </div>
                 <div>
-                    <ActionButtons displayMosaic={() => setDisplayMosaic(true)}/>
+                    <ActionButtons cards={cards} displayMosaic={() => setDisplayMosaic(true)}/>
                 </div>
             </div>
             <div className={"cards-container"}>

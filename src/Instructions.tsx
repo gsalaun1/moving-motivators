@@ -1,5 +1,3 @@
-import arrowLeft from "./assets/arrow-left-solid.svg";
-import arrowRight from "./assets/arrow-right-solid.svg";
 import './Instructions.css'
 
 type InstructionsProps = {
@@ -19,28 +17,17 @@ const Instructions = ({step, updateStep}: InstructionsProps) => {
 
     const actionButton =() => {
         if (step === 1) {
-            return <button onClick={() => updateStep(2)}>Passer à l'étape suivante</button>
+            return <button onClick={() => updateStep(2)}>Passer à la deuxième étape</button>
         } else {
-            return <button onClick={() => updateStep(1)}>Revenir à l'étape précédente</button>
+            return <button onClick={() => updateStep(1)}>Revenir à la première étape</button>
         }
     }
 
     return (
         <>
             <div className={"instructions"}>
-                <div>
-                    <img src={arrowLeft}/>
-                    &nbsp;
-                    <span>Moins important</span>
-                </div>
                 {instructions()}
-                <div>
-                    <span>Plus important</span>
-                    &nbsp;
-                    <img src={arrowRight}/>
-                </div>
             </div>
-            <br/>
             {actionButton()}
         </>
     )

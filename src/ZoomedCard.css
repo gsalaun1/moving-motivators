@@ -1,0 +1,12 @@
+.zoomed-card, .empty-zoomed-card {
+    width: 20rem;
+    padding: 2rem;
+}
+
+.zoomed-card img, .empty-zoomed-card img {
+    width: 100%;
+}
+
+.empty-zoomed-card img {
+    opacity: 0.0;
+}

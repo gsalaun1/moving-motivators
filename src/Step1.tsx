@@ -5,6 +5,7 @@ import {closestCenter, DndContext, DragEndEvent, DragOverlay, DragStartEvent} fr
 import SortableCard from "./SortableCard.tsx";
 import DisplayableCard from "./DisplayableCard.tsx";
 import {Card} from "./App.tsx";
+import {restrictToHorizontalAxis} from "@dnd-kit/modifiers";
 
 type Props = {
     cards: Card[]
@@ -51,6 +52,7 @@ const Step1 = forwardRef<HTMLDivElement, Props>(
                 onDragStart={handleCardDragStart}
                 onDragEnd={handleCardDragEnd}
                 onDragCancel={handleCardDragCancel}
+                modifiers={[restrictToHorizontalAxis]}
             >
                 <SortableContext items={cards} strategy={rectSortingStrategy}>
                     <div

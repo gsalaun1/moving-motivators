@@ -16,3 +16,19 @@ pages:
   artifacts:
     paths:
       - public
+
+pages-branch:
+  stage: deploy
+  script:
+    - npm install
+    - npm run build
+    - mkdir -p _branch/$CI_COMMIT_BRANCH
+    - cp -a dist/. _branch/$CI_COMMIT_BRANCH
+  environment:
+    name: $CI_COMMIT_BRANCH
+    url: "https://$CI_PROJECT_NAMESPACE.gitlab.io/-/$CI_PROJECT_NAME/-/jobs/$CI_JOB_ID/artifacts/_branch/$CI_COMMIT_BRANCH/index.html"
+  artifacts:
+    paths:
+      - _branch
+  except:
+    - master

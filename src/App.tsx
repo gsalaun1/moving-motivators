@@ -2,12 +2,11 @@ import {useState} from 'react'
 import acceptationCard from './assets/acceptation.png'
 import './App.css'
 import Step1 from "./Step1.tsx";
-import grid from './assets/grid.svg'
-import gitlab from './assets/gitlab.svg'
 import CardMosaic from "./CardMosaic.tsx"
 import Instructions from "./Instructions.tsx";
 import {allCards} from "./config.ts";
 import Step2 from "./Step2.tsx";
+import ActionButtons from "./ActionButtons.tsx";
 
 export type Card = {
     id: number
@@ -61,19 +60,21 @@ function App() {
 
     return (
         <>
-            <h1>Moving Motivators</h1>
-            <img src={grid} className={"mosaic-button"} title={"Mosaïque"}
-                 onClick={() => setDisplayMosaic(true)}/>
-            <a href="https://gitlab.com/gsalaun1/moving-motivators" target="_blank" className={"repository-button"}>
-                <img src={gitlab} title={"Repository"}/>
-            </a>
-            <div className={"zoomed-card"}>
-                <img src={zoomedCard}/>
+            <div className="top-section">
+                <div className={"zoomed-card"}>
+                    <img src={zoomedCard}/>
+                </div>
+                <div style={{position: "absolute", width: "100%"}}>
+                    <h1>Moving Motivators</h1>
+                    <Instructions step={step} updateStep={updateStep}/>
+                </div>
+                <div>
+                    <ActionButtons displayMosaic={() => setDisplayMosaic(true)}/>
+                </div>
             </div>
             <div className={"cards"}>
                 {displayStep()}
             </div>
-            <Instructions step={step} updateStep={updateStep}/>
             <div className={"footer"}>Cet exercice est une des pratiques du Management 3.0 - <a
                 href={"https://management30.com/practice/moving-motivators/"} target={"_blank"}>Site officiel</a></div>
 

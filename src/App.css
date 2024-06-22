@@ -2,10 +2,16 @@
     text-align: center;
 }
 
-.cards {
-    margin: 1rem;
+.top-section {
     display: flex;
+    justify-content: space-between;
+}
+
+.cards {
+    margin-left: 1rem;
+    margin-right: 1rem;
     gap: 1rem;
+    margin-top: -2rem;
 }
 
 .cards img {
@@ -13,9 +19,8 @@
 }
 
 .zoomed-card {
-    width: 22%;
-    margin: auto;
-    text-align: center;
+    width: 20rem;
+    padding: 2rem;
 }
 
 .zoomed-card img {
@@ -54,8 +59,7 @@
 
 .footer {
     position: absolute;
-    margin-top: 2rem;
-    margin-bottom: 0;
+    bottom: 10px;
     text-align: center;
     width: 100%;
 }

@@ -1,5 +1,3 @@
-import arrowLeft from "./assets/arrow-left-solid.svg";
-import arrowRight from "./assets/arrow-right-solid.svg";
 import './Instructions.css'
 
 type InstructionsProps = {
@@ -28,17 +26,7 @@ const Instructions = ({step, updateStep}: InstructionsProps) => {
     return (
         <>
             <div className={"instructions"}>
-                <div>
-                    <img src={arrowLeft}/>
-                    &nbsp;
-                    <span>Moins important</span>
-                </div>
                 {instructions()}
-                <div>
-                    <span>Plus important</span>
-                    &nbsp;
-                    <img src={arrowRight}/>
-                </div>
             </div>
             <br/>
             {actionButton()}

@@ -30,16 +30,24 @@ const Step2 = ({cards, onHover, applyDelta}: Step2Props) => {
         applyDelta(activeCard.id, delta.y)
     }
 
+    const floatingLine = {
+        position: "absolute",
+        marginTop: "200px",
+        border:"1px dashed rgb(63 63 68 / 25%)",
+        width: "95%",
+    }
+
     return (
 
         <div style={container}>
+            <div style={floatingLine}></div>
             {cards.map((card) => (
                 <DndContext
                     onDragEnd={handleCardDragEnd}
                     modifiers={[restrictToVerticalAxis, restrictToParentElement]}>
                     <div>
                         <DraggableCard key={card.id} card={card}
-                                           onHover={onHover} id={card.id} y={card.y}/>
+                                       onHover={onHover} id={card.id} y={card.y}/>
                     </div>
                 </DndContext>
             ))}

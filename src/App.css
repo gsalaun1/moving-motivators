@@ -2,23 +2,23 @@
     text-align: center;
 }
 
-.cards {
-    margin: 1rem;
+.top-section {
     display: flex;
+    justify-content: space-between;
+}
+
+.cards-container {
+    display: flex;
+}
+
+.cards {
+    margin-left: 1rem;
+    margin-right: 1rem;
     gap: 1rem;
+    margin-top: -2rem;
 }
 
 .cards img {
-    width: 100%;
-}
-
-.zoomed-card {
-    width: 22%;
-    margin: auto;
-    text-align: center;
-}
-
-.zoomed-card img {
     width: 100%;
 }
 
@@ -26,36 +26,11 @@
     filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-.mosaic-button {
-    position: absolute;
-    right: 2em;
-    top: 2em;
-    width: 2em;
-    cursor: pointer;
-}
 
-.mosaic {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 1rem;
-}
-
-.mosaic img {
-    width: 66%;
-}
-
-.repository-button {
-    position: absolute;
-    right: 2em;
-    top: 5em;
-    width: 2em;
-    cursor: pointer;
-}
 
 .footer {
     position: absolute;
-    margin-top: 2rem;
-    margin-bottom: 0;
+    bottom: 10px;
     text-align: center;
     width: 100%;
 }

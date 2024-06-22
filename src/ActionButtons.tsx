@@ -1,5 +1,6 @@
 import grid from "./assets/grid.svg";
 import gitlab from "./assets/gitlab.svg";
+import './ActionButtons.css';
 
 type ActionButtonsProps = {
     displayMosaic: () => void

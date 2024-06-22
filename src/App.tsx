@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import './App.css'
 import Step1 from "./Step1.tsx";
-import CardMosaic from "./CardMosaic.tsx"
+import Mosaic from "./Mosaic.tsx"
 import Instructions from "./Instructions.tsx";
 import {allCards} from "./config.ts";
 import Step2 from "./Step2.tsx";
@@ -33,7 +33,7 @@ function App() {
     }
 
     if (displayMosaic) {
-        return <CardMosaic close={() => setDisplayMosaic(false)}/>
+        return <Mosaic close={() => setDisplayMosaic(false)}/>
     }
 
     const applyDelta = (cardId: number, delta: number) => {

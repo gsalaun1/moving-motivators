@@ -9,13 +9,31 @@ const Instructions = ({step, updateStep}: InstructionsProps) => {
 
     const instructions = () => {
         if (step === 1) {
-            return <span>Etape 1 : triez les cartes par ordre d'importance, de la moins importante à gauche vers la plus importante à droite</span>
+            return (
+                <>
+                    <span style={{fontWeight: "bold"}}>Etape 1 : Classer les drivers par importance</span>
+                    <br/>
+                    <br/>
+                    Prenez le temps de lire les cartes.
+                    <br/>
+                    Déplacez le plus à droite celles qui vous semblent les plus importantes.
+                </>
+            )
         } else {
-            return <span>Etape 2 : faites monter/descendre les cartes suivant l'influence du changement considéré</span>
+            return (
+                <>
+                    <span style={{fontWeight: "bold"}}>Etape 2 : Visualiser les impacts</span>
+                    <br/>
+                    <br/>
+                    Pensez à un changement de situation, ou à une décision à prendre.
+                    <br/>
+                    Ensuite visualisez l'impact de cette nouvelle situation sur votre motivation en déplaçant les cartes vers le haut ou vers le bas.
+                </>
+            )
         }
     }
 
-    const actionButton =() => {
+    const actionButton = () => {
         if (step === 1) {
             return <button onClick={() => updateStep(2)}>Passer à la deuxième étape</button>
         } else {

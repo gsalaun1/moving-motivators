@@ -1,11 +1,12 @@
 import {allCards} from "./config.ts";
 import xlg from "./assets/x-lg.svg";
+import './Mosaic.css'
 
 type Props = {
     close: () => void
 }
 
-const CardMosaic = ({close}: Props) => {
+const Mosaic = ({close}: Props) => {
 
     return (
         <>
@@ -20,4 +21,4 @@ const CardMosaic = ({close}: Props) => {
     )
 }
 
-export default CardMosaic
+export default Mosaic

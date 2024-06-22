@@ -1,13 +1,14 @@
 import {useState} from 'react'
-import acceptationCard from './assets/acceptation.png'
 import './App.css'
 import Step1 from "./Step1.tsx";
-import grid from './assets/grid.svg'
-import gitlab from './assets/gitlab.svg'
-import CardMosaic from "./CardMosaic.tsx"
+import Mosaic from "./Mosaic.tsx"
 import Instructions from "./Instructions.tsx";
 import {allCards} from "./config.ts";
 import Step2 from "./Step2.tsx";
+import ActionButtons from "./ActionButtons.tsx";
+import ZoomedCard from "./ZoomedCard.tsx";
+import HorizontalInfoBar from "./HorizontalInfoBar.tsx";
+import VerticalInfoBar from "./VerticalInfoBar.tsx";
 
 export type Card = {
     id: number
@@ -17,7 +18,7 @@ export type Card = {
 
 function App() {
 
-    const [zoomedCard, setZoomedCard] = useState(acceptationCard)
+    const [zoomedCard, setZoomedCard] = useState<string | null>(null)
 
     const [displayMosaic, setDisplayMosaic] = useState<boolean>(false)
 
@@ -34,7 +35,7 @@ function App() {
     }
 
     if (displayMosaic) {
-        return <CardMosaic close={() => setDisplayMosaic(false)}/>
+        return <Mosaic close={() => setDisplayMosaic(false)}/>
     }
 
     const applyDelta = (cardId: number, delta: number) => {
@@ -57,23 +58,28 @@ function App() {
 
     const updateStep = (newStep: number) => {
         setStep(newStep)
+        setZoomedCard(null)
     }
 
     return (
         <>
-            <h1>Moving Motivators</h1>
-            <img src={grid} className={"mosaic-button"} title={"Mosaïque"}
-                 onClick={() => setDisplayMosaic(true)}/>
-            <a href="https://gitlab.com/gsalaun1/moving-motivators" target="_blank" className={"repository-button"}>
-                <img src={gitlab} title={"Repository"}/>
-            </a>
-            <div className={"zoomed-card"}>
-                <img src={zoomedCard}/>
+            <div className="top-section">
+                <ZoomedCard card={zoomedCard}/>
+                <div style={{position: "absolute", width: "100%"}}>
+                    <h1>Moving Motivators</h1>
+                    <Instructions step={step} updateStep={updateStep}/>
+                </div>
+                <div>
+                    <ActionButtons displayMosaic={() => setDisplayMosaic(true)}/>
+                </div>
             </div>
-            <div className={"cards"}>
-                {displayStep()}
+            <div className={"cards-container"}>
+                <VerticalInfoBar step={step}/>
+                <div className={"cards"}>
+                    {displayStep()}
+                </div>
             </div>
-            <Instructions step={step} updateStep={updateStep}/>
+            <HorizontalInfoBar step={step}/>
             <div className={"footer"}>Cet exercice est une des pratiques du Management 3.0 - <a
                 href={"https://management30.com/practice/moving-motivators/"} target={"_blank"}>Site officiel</a></div>
 

@@ -2,6 +2,7 @@ import {DndContext, DragEndEvent} from "@dnd-kit/core";
 import {restrictToParentElement, restrictToVerticalAxis} from "@dnd-kit/modifiers";
 import {Card} from "./App.tsx";
 import DraggableCard from "./DraggableCard.tsx";
+import './Step2.css'
 
 type Step2Props = {
     cards: Card[]
@@ -30,16 +31,10 @@ const Step2 = ({cards, onHover, applyDelta}: Step2Props) => {
         applyDelta(activeCard.id, delta.y)
     }
 
-    const floatingLine = {
-        marginTop: "200px",
-        border: "1px dashed rgb(63 63 68 / 25%)",
-        width: "95%",
-    }
-
     return (
 
         <div style={container}>
-            <div style={{...floatingLine, position: "absolute"}}></div>
+            <div className={"floatingLine"}></div>
             {cards.map((card) => (
                 <DndContext
                     onDragEnd={handleCardDragEnd}

@@ -17,9 +17,9 @@ const Instructions = ({step, updateStep}: InstructionsProps) => {
 
     const actionButton =() => {
         if (step === 1) {
-            return <button onClick={() => updateStep(2)}>Passer à l'étape suivante</button>
+            return <button onClick={() => updateStep(2)}>Passer à la deuxième étape</button>
         } else {
-            return <button onClick={() => updateStep(1)}>Revenir à l'étape précédente</button>
+            return <button onClick={() => updateStep(1)}>Revenir à la première étape</button>
         }
     }
 

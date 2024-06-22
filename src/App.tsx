@@ -10,7 +10,7 @@ import ZoomedCard from "./ZoomedCard.tsx";
 import HorizontalInfoBar from "./HorizontalInfoBar.tsx";
 import VerticalInfoBar from "./VerticalInfoBar.tsx";
 import {useSearchParams} from "react-router-dom";
-import {seedExtracter} from "./SeedExtracter.ts";
+import {seedExtracter} from "./SeedService.ts";
 import {Toaster} from "react-hot-toast";
 
 export type Card = {

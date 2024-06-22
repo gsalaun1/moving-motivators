@@ -24,6 +24,11 @@ const ActionButtons = ({displayMosaic, cards}: ActionButtonsProps) => {
 
     const copyShareLink = () => {
         const rootUrl = extractRootUrl()
+        console.log(cards.length)
+        cards.forEach(card => {
+            //console.log("une carte")
+            console.log(card.y)
+        })
         const link = rootUrl + "?seed=" + cards.map(card => card.id).join("")
         navigator.clipboard.writeText(link);
         toast.success('Lien de partage copié !')

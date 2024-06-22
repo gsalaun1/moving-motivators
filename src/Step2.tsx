@@ -43,7 +43,8 @@ const Step2 = ({cards, onHover, applyDelta}: Step2Props) => {
             {cards.map((card) => (
                 <DndContext
                     onDragEnd={handleCardDragEnd}
-                    modifiers={[restrictToVerticalAxis, restrictToParentElement]}>
+                    modifiers={[restrictToVerticalAxis, restrictToParentElement]}
+                    key={card.id}>
                     <div>
                         <DraggableCard
                             key={card.id}

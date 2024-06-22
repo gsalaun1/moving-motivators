@@ -8,6 +8,7 @@ import Step2 from "./Step2.tsx";
 import ActionButtons from "./ActionButtons.tsx";
 import ZoomedCard from "./ZoomedCard.tsx";
 import InfoBar from "./InfoBar.tsx";
+import VerticalInfoBar from "./VerticalInfoBar.tsx";
 
 export type Card = {
     id: number
@@ -72,8 +73,11 @@ function App() {
                     <ActionButtons displayMosaic={() => setDisplayMosaic(true)}/>
                 </div>
             </div>
-            <div className={"cards"}>
-                {displayStep()}
+            <div className={"cards-container"}>
+                <VerticalInfoBar step={step}/>
+                <div className={"cards"}>
+                    {displayStep()}
+                </div>
             </div>
             <InfoBar step={step}/>
             <div className={"footer"}>Cet exercice est une des pratiques du Management 3.0 - <a

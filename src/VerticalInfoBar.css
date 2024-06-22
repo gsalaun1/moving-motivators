@@ -1,0 +1,11 @@
+.vertical-info-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 15rem;
+    margin-left: 1rem;
+}
+
+.vertical-info-bar img {
+    width: 100%;
+}

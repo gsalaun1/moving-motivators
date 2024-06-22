@@ -16,7 +16,7 @@ const Step2 = ({cards, onHover, applyDelta}: Step2Props) => {
         gridTemplateColumns: `repeat(10, 1fr)`,
         gridGap: 16,
         maxWidth: "100%",
-        margin: "16px auto 48px",
+        margin: "16px auto 16px",
         height: "400px",
         width: "100%",
     }

@@ -3,6 +3,8 @@ import gitlab from "./assets/gitlab.svg";
 import link from "./assets/link-solid.svg";
 import './ActionButtons.css';
 import {Card} from "./App.tsx";
+import toast from "react-hot-toast";
+
 
 type ActionButtonsProps = {
     cards: Card[]
@@ -13,10 +15,10 @@ const ActionButtons = ({displayMosaic, cards}: ActionButtonsProps) => {
 
     const extractRootUrl = (): string => {
         const questionMarkIndex = window.location.toString().lastIndexOf("?")
-        if(questionMarkIndex === -1){
+        if (questionMarkIndex === -1) {
             return window.location.toString()
         } else {
-            return window.location.toString().substring(0,questionMarkIndex)
+            return window.location.toString().substring(0, questionMarkIndex)
         }
     }
 
@@ -24,6 +26,7 @@ const ActionButtons = ({displayMosaic, cards}: ActionButtonsProps) => {
         const rootUrl = extractRootUrl()
         const link = rootUrl + "?seed=" + cards.map(card => card.id).join("")
         navigator.clipboard.writeText(link);
+        toast.success('Lien de partage copié !')
     }
 
     return (

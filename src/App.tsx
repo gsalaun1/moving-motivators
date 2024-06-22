@@ -11,6 +11,7 @@ import HorizontalInfoBar from "./HorizontalInfoBar.tsx";
 import VerticalInfoBar from "./VerticalInfoBar.tsx";
 import {useSearchParams} from "react-router-dom";
 import {seedExtracter} from "./SeedExtracter.ts";
+import {Toaster} from "react-hot-toast";
 
 export type Card = {
     id: number
@@ -81,6 +82,7 @@ function App() {
 
     return (
         <>
+            <div><Toaster/></div>
             <div className="top-section">
                 <ZoomedCard card={zoomedCard}/>
                 <div style={{position: "absolute", width: "100%"}}>
